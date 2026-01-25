@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preposition - Learn & Play Grammar</title>
+    <link rel="stylesheet" href="grammar.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">📍</span> Preposition
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What is a Preposition?</h3>
+                <p class="explanation-text">
+                    A <strong>preposition</strong> tells us WHERE something is or WHEN something happens! 
+                    It shows position or time. Think of it as a word that tells you the location or timing of things. 
+                    "The cat is ON the bed" - ON is a preposition! 📍
+                </p>
+
+                <h4 class="examples-title">✨ Examples of Prepositions:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>📍 Where (Location):</strong> on, in, under, above, below, beside</li>
+                    <li class="example-item"><strong>📦 Position:</strong> between, behind, in front of, near, next to</li>
+                    <li class="example-item"><strong>⏰ Time:</strong> before, after, during, until, since</li>
+                    <li class="example-item"><strong>🏠 Examples:</strong> The book is <u>on</u> the table. We play <u>after</u> school.</li>
+                </ul>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> Imagine a box! You can put things IN the box, ON the box, UNDER the box, 
+                    or BESIDE the box. All of these words are prepositions! 📦
+                </p>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn">🎮 Start Playing!</button>
+                
+                <div class="game-container" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display">🏆 Score: 0</div>
+                        <div class="question-counter">Question 1 / 5</div>
+                    </div>
+                    <div class="question-text">Loading question...</div>
+                    <div class="options-grid"></div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+    <script>
+        const gameQuestions = [
+            {
+                question: 'Which shows WHERE something is?',
+                options: ['On', 'Dog', 'Run', 'Happy'],
+                correct: 'On'
+            },
+            {
+                question: 'Find the PREPOSITION: The cat is under the table.',
+                options: ['Cat', 'Under', 'Table', 'Is'],
+                correct: 'Under'
+            },
+            {
+                question: 'Pick the position word:',
+                options: ['Jump', 'In', 'Red', 'Quickly'],
+                correct: 'In'
+            },
+            {
+                question: 'The book is ___ the desk:',
+                options: ['Running', 'Beautiful', 'Between', 'Happy'],
+                correct: 'Between'
+            },
+            {
+                question: 'Which is a PREPOSITION?',
+                options: ['Above', 'Eating', 'Teacher', 'Slow'],
+                correct: 'Above'
+            },
+            {
+                question: 'Find the PREPOSITION: We play before dinner.',
+                options: ['We', 'Play', 'Before', 'Dinner'],
+                correct: 'Before'
+            },
+            {
+                question: 'Which tells WHERE?',
+                options: ['Behind', 'Running', 'Happy', 'Quickly'],
+                correct: 'Behind'
+            },
+            {
+                question: 'Pick the PREPOSITION: She sits beside me.',
+                options: ['She', 'Sits', 'Beside', 'Me'],
+                correct: 'Beside'
+            }
+        ];
+    </script>
+</body>
+</html>

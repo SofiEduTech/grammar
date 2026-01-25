@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interjection - Learn & Play Grammar</title>
+    <link rel="stylesheet" href="grammar.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">💥</span> Interjection
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What is an Interjection?</h3>
+                <p class="explanation-text">
+                    An <strong>interjection</strong> is a word that shows strong feelings or emotions! 
+                    They're usually followed by an exclamation mark (!) and express surprise, joy, pain, or excitement. 
+                    When something amazing happens, you might say "Wow!" - that's an interjection! 💥
+                </p>
+
+                <h4 class="examples-title">✨ Examples of Interjections:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>🎉 Happy feelings:</strong> Yay! Hooray! Wow! Yippee! Awesome!</li>
+                    <li class="example-item"><strong>😮 Surprise:</strong> Oh! Ah! Whoa! Oops! Oh my!</li>
+                    <li class="example-item"><strong>😢 Sad feelings:</strong> Alas! Oh no! Aw!</li>
+                    <li class="example-item"><strong>🤕 Pain:</strong> Ouch! Ow! Yikes!</li>
+                    <li class="example-item"><strong>🤫 Attention:</strong> Hey! Psst! Hello! Hi!</li>
+                </ul>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> Interjections are the most emotional words in grammar! 
+                    They help us express exactly how we feel. Try saying them with lots of feeling! 🎭
+                </p>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn">🎮 Start Playing!</button>
+                
+                <div class="game-container" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display">🏆 Score: 0</div>
+                        <div class="question-counter">Question 1 / 5</div>
+                    </div>
+                    <div class="question-text">Loading question...</div>
+                    <div class="options-grid"></div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+    <script>
+        const gameQuestions = [
+            {
+                question: 'Which shows strong feeling?',
+                options: ['Wow', 'Dog', 'Run', 'Happy'],
+                correct: 'Wow'
+            },
+            {
+                question: 'Find the INTERJECTION: Ouch! That hurts!',
+                options: ['Ouch', 'That', 'Hurts', 'That hurts'],
+                correct: 'Ouch'
+            },
+            {
+                question: 'Pick the feeling word:',
+                options: ['Jump', 'Yay', 'Red', 'Slowly'],
+                correct: 'Yay'
+            },
+            {
+                question: 'Which shows surprise?',
+                options: ['Running', 'Oh', 'Teacher', 'Beautiful'],
+                correct: 'Oh'
+            },
+            {
+                question: 'Find the INTERJECTION: Hooray! We won!',
+                options: ['Hooray', 'We', 'Won', 'We won'],
+                correct: 'Hooray'
+            },
+            {
+                question: 'Which shows pain?',
+                options: ['Happy', 'Ow', 'Running', 'Beside'],
+                correct: 'Ow'
+            },
+            {
+                question: 'Pick the INTERJECTION:',
+                options: ['Hey', 'Cat', 'Beautiful', 'Quickly'],
+                correct: 'Hey'
+            },
+            {
+                question: 'Find the INTERJECTION: Yikes! A spider!',
+                options: ['Yikes', 'A', 'Spider', 'A spider'],
+                correct: 'Yikes'
+            }
+        ];
+    </script>
+</body>
+</html>

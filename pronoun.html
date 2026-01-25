@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoun - Learn & Play Grammar</title>
+    <link rel="stylesheet" href="grammar.css">
+    <style>
+        /* Types of Pronouns Grid */
+        .pronoun-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .pronoun-type-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .pronoun-type-card:nth-child(1) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .pronoun-type-card:nth-child(2) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .pronoun-type-card:nth-child(3) {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .pronoun-type-card:nth-child(4) {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .pronoun-type-card:nth-child(5) {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .pronoun-type-card:nth-child(6) {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .pronoun-type-card:nth-child(7) {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+        }
+
+        .pronoun-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .pronoun-type-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .pronoun-type-icon {
+            font-size: 32px;
+        }
+
+        .pronoun-type-title {
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .pronoun-type-description {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .pronoun-type-examples {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            margin-top: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .pronoun-type-examples strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .pronoun-types-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">👤</span> Pronoun
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What is a Pronoun?</h3>
+                <p class="explanation-text">
+                    A <strong>pronoun</strong> is a word that takes the place of a noun! Instead of saying "Sarah" 
+                    over and over, we can say "she." Instead of repeating "the ball," we say "it." Pronouns make 
+                    our sentences shorter and less repetitive! 👤
+                </p>
+
+                <h4 class="examples-title">✨ Examples of Pronouns:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>👦 For boys/men:</strong> he, him, his</li>
+                    <li class="example-item"><strong>👧 For girls/women:</strong> she, her, hers</li>
+                    <li class="example-item"><strong>📦 For things:</strong> it, its</li>
+                    <li class="example-item"><strong>👥 For groups:</strong> we, they, us, them, our, their</li>
+                    <li class="example-item"><strong>🙋 For yourself:</strong> I, me, my, mine</li>
+                </ul>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> "Sarah loves her dog. She plays with it every day." 
+                    Can you see how "she" replaces "Sarah" and "it" replaces "dog"? 🐕
+                </p>
+            </div>
+
+            <!-- Types of Pronouns Section -->
+            <div class="explanation-section">
+                <h3 class="section-title">🎯 Types of Pronouns</h3>
+                
+                <div class="pronoun-types-grid">
+                    <!-- Personal Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">🙋</span>
+                            <h4 class="pronoun-type-title">Personal Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that refer to specific people or things. They change based on who is speaking or being spoken about.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> I, me, you, he, him, she, her, it, we, us, they, them
+                        </div>
+                    </div>
+
+                    <!-- Possessive Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">🎁</span>
+                            <h4 class="pronoun-type-title">Possessive Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that show ownership or belonging. They tell us who something belongs to.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> my, mine, your, yours, his, her, hers, its, our, ours, their, theirs
+                        </div>
+                    </div>
+
+                    <!-- Demonstrative Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">👉</span>
+                            <h4 class="pronoun-type-title">Demonstrative Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that point to specific things. They help us identify which one we're talking about.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> this, that, these, those
+                        </div>
+                    </div>
+
+                    <!-- Interrogative Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">❓</span>
+                            <h4 class="pronoun-type-title">Interrogative Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words used to ask questions. They help us find out information about people or things.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> who, whom, whose, which, what
+                        </div>
+                    </div>
+
+                    <!-- Reflexive Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">🪞</span>
+                            <h4 class="pronoun-type-title">Reflexive Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that refer back to the subject. They end in -self or -selves.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> myself, yourself, himself, herself, itself, ourselves, themselves
+                        </div>
+                    </div>
+
+                    <!-- Indefinite Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">🌐</span>
+                            <h4 class="pronoun-type-title">Indefinite Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that refer to non-specific people or things. They don't point to anyone in particular.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> someone, anyone, everyone, nobody, something, anything, all, some, none
+                        </div>
+                    </div>
+
+                    <!-- Relative Pronouns -->
+                    <div class="pronoun-type-card">
+                        <div class="pronoun-type-header">
+                            <span class="pronoun-type-icon">🔗</span>
+                            <h4 class="pronoun-type-title">Relative Pronouns</h4>
+                        </div>
+                        <p class="pronoun-type-description">
+                            Words that connect clauses or phrases to nouns or pronouns. They relate one part of the sentence to another.
+                        </p>
+                        <div class="pronoun-type-examples">
+                            <strong>Examples:</strong> who, whom, whose, which, that
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn">🎮 Start Playing!</button>
+                
+                <div class="game-container" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display">🏆 Score: 0</div>
+                        <div class="question-counter">Question 1 / 10</div>
+                    </div>
+                    <div class="question-text">Loading question...</div>
+                    <div class="options-grid"></div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+    <script>
+        // Expanded Question Bank - 40+ questions covering all pronoun types
+        const allPronounQuestions = [
+            // Personal Pronouns
+            {
+                question: 'Which is a PERSONAL PRONOUN?',
+                options: ['He', 'Dog', 'Run', 'Happy'],
+                correct: 'He'
+            },
+            {
+                question: 'What can replace "Sarah"?',
+                options: ['He', 'She', 'It', 'They'],
+                correct: 'She'
+            },
+            {
+                question: 'Pick the PERSONAL PRONOUN:',
+                options: ['Book', 'We', 'School', 'Beautiful'],
+                correct: 'We'
+            },
+            {
+                question: 'Which word can replace "the ball"?',
+                options: ['He', 'She', 'It', 'We'],
+                correct: 'It'
+            },
+            {
+                question: 'Find the PERSONAL PRONOUN: They are playing.',
+                options: ['They', 'Are', 'Playing', 'Are playing'],
+                correct: 'They'
+            },
+            {
+                question: 'What replaces "Tom and I"?',
+                options: ['He', 'She', 'We', 'It'],
+                correct: 'We'
+            },
+            {
+                question: 'Which is a PERSONAL PRONOUN?',
+                options: ['Running', 'Beautiful', 'Us', 'Garden'],
+                correct: 'Us'
+            },
+            {
+                question: 'Find the PERSONAL PRONOUN: I love my family.',
+                options: ['I', 'Love', 'My', 'Family'],
+                correct: 'I'
+            },
+            
+            // Possessive Pronouns
+            {
+                question: 'Which is a POSSESSIVE PRONOUN?',
+                options: ['This', 'Mine', 'Who', 'Himself'],
+                correct: 'Mine'
+            },
+            {
+                question: 'Pick the POSSESSIVE PRONOUN: That book is hers.',
+                options: ['That', 'book', 'hers', 'is'],
+                correct: 'hers'
+            },
+            {
+                question: 'Which shows OWNERSHIP?',
+                options: ['Their', 'They', 'Them', 'These'],
+                correct: 'Their'
+            },
+            {
+                question: 'Find the POSSESSIVE PRONOUN:',
+                options: ['We', 'Ours', 'Ourselves', 'Someone'],
+                correct: 'Ours'
+            },
+            {
+                question: 'Which is POSSESSIVE?',
+                options: ['You', 'Your', 'Yourself', 'That'],
+                correct: 'Your'
+            },
+            
+            // Demonstrative Pronouns
+            {
+                question: 'Which is a DEMONSTRATIVE PRONOUN?',
+                options: ['This', 'Mine', 'He', 'Myself'],
+                correct: 'This'
+            },
+            {
+                question: 'Pick the DEMONSTRATIVE PRONOUN: Those are beautiful!',
+                options: ['Those', 'are', 'beautiful', 'are beautiful'],
+                correct: 'Those'
+            },
+            {
+                question: 'Which POINTS to something?',
+                options: ['She', 'That', 'Hers', 'Everyone'],
+                correct: 'That'
+            },
+            {
+                question: 'Find the DEMONSTRATIVE PRONOUN:',
+                options: ['These', 'Someone', 'His', 'We'],
+                correct: 'These'
+            },
+            
+            // Interrogative Pronouns
+            {
+                question: 'Which is an INTERROGATIVE PRONOUN?',
+                options: ['Who', 'He', 'This', 'Mine'],
+                correct: 'Who'
+            },
+            {
+                question: 'Which pronoun ASKS A QUESTION?',
+                options: ['That', 'What', 'Their', 'Himself'],
+                correct: 'What'
+            },
+            {
+                question: 'Pick the INTERROGATIVE PRONOUN: Which is yours?',
+                options: ['Which', 'is', 'yours', 'is yours'],
+                correct: 'Which'
+            },
+            {
+                question: 'Find the INTERROGATIVE PRONOUN:',
+                options: ['Someone', 'Whose', 'These', 'Us'],
+                correct: 'Whose'
+            },
+            
+            // Reflexive Pronouns
+            {
+                question: 'Which is a REFLEXIVE PRONOUN?',
+                options: ['Myself', 'My', 'Me', 'Mine'],
+                correct: 'Myself'
+            },
+            {
+                question: 'Pick the REFLEXIVE PRONOUN: She did it herself.',
+                options: ['She', 'did', 'herself', 'it'],
+                correct: 'herself'
+            },
+            {
+                question: 'Which ends in -SELF or -SELVES?',
+                options: ['Themselves', 'They', 'Their', 'Theirs'],
+                correct: 'Themselves'
+            },
+            {
+                question: 'Find the REFLEXIVE PRONOUN:',
+                options: ['You', 'Yourself', 'Your', 'Yours'],
+                correct: 'Yourself'
+            },
+            {
+                question: 'Which is REFLEXIVE?',
+                options: ['Him', 'Himself', 'His', 'He'],
+                correct: 'Himself'
+            },
+            
+            // Indefinite Pronouns
+            {
+                question: 'Which is an INDEFINITE PRONOUN?',
+                options: ['Someone', 'He', 'This', 'Myself'],
+                correct: 'Someone'
+            },
+            {
+                question: 'Pick the INDEFINITE PRONOUN:',
+                options: ['She', 'Everyone', 'Those', 'Hers'],
+                correct: 'Everyone'
+            },
+            {
+                question: 'Which refers to NON-SPECIFIC people?',
+                options: ['They', 'Anybody', 'These', 'Ourselves'],
+                correct: 'Anybody'
+            },
+            {
+                question: 'Find the INDEFINITE PRONOUN: Nothing is wrong.',
+                options: ['Nothing', 'is', 'wrong', 'is wrong'],
+                correct: 'Nothing'
+            },
+            {
+                question: 'Which is INDEFINITE?',
+                options: ['We', 'Something', 'That', 'Yourself'],
+                correct: 'Something'
+            },
+            
+            // Relative Pronouns
+            {
+                question: 'Which is a RELATIVE PRONOUN?',
+                options: ['Who', 'He', 'Everyone', 'Myself'],
+                correct: 'Who'
+            },
+            {
+                question: 'Pick the RELATIVE PRONOUN: The book that I read was great.',
+                options: ['book', 'that', 'read', 'great'],
+                correct: 'that'
+            },
+            {
+                question: 'Which CONNECTS clauses?',
+                options: ['This', 'Which', 'Someone', 'Ourselves'],
+                correct: 'Which'
+            },
+            
+            // Mixed Questions
+            {
+                question: 'What type is "herself"?',
+                options: ['Personal', 'Possessive', 'Reflexive', 'Demonstrative'],
+                correct: 'Reflexive'
+            },
+            {
+                question: 'What type is "this"?',
+                options: ['Personal', 'Demonstrative', 'Interrogative', 'Indefinite'],
+                correct: 'Demonstrative'
+            },
+            {
+                question: 'What type is "mine"?',
+                options: ['Personal', 'Possessive', 'Reflexive', 'Indefinite'],
+                correct: 'Possessive'
+            },
+            {
+                question: 'What type is "everyone"?',
+                options: ['Personal', 'Reflexive', 'Indefinite', 'Demonstrative'],
+                correct: 'Indefinite'
+            },
+            {
+                question: 'What type is "whom"?',
+                options: ['Interrogative', 'Personal', 'Reflexive', 'Possessive'],
+                correct: 'Interrogative'
+            }
+        ];
+
+        // Function to shuffle array
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        // Select 10 random questions each time
+        const gameQuestions = shuffleArray(allPronounQuestions).slice(0, 10);
+    </script>
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenses - Learn & Play Grammar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .stars, .stars2, .stars3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stars {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="white" opacity="0.3"/></svg>') repeat;
+            animation: animateStars 50s linear infinite;
+        }
+
+        .stars2 {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="white" opacity="0.2"/></svg>') repeat;
+            animation: animateStars 100s linear infinite;
+        }
+
+        .stars3 {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+            animation: animateStars 150s linear infinite;
+        }
+
+        @keyframes animateStars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-2000px); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .home-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .page-logo {
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-title {
+            color: #667eea;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-icon {
+            font-size: 3rem;
+        }
+
+        .explanation-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .explanation-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .examples-title {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .example-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .example-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .tense-table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        .tense-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .tense-table th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+
+        .tense-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .tense-table tr:hover {
+            background: #f5f7fa;
+        }
+
+        .tense-type {
+            font-weight: 600;
+            color: #764ba2;
+        }
+
+        .start-game-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .start-game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .game-container {
+            margin-top: 30px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .score-display, .question-counter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .question-text {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #667eea;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .option-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-btn.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .option-btn.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .feedback {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">⏰</span> Tenses
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What are Tenses?</h3>
+                <p class="explanation-text">
+                    <strong>Tenses</strong> tell us WHEN something happens! Is it happening now? Did it already happen? 
+                    Or will it happen later? There are three main tenses: Past (already happened), Present (happening now), 
+                    and Future (will happen). They're like time machines for words! ⏰
+                </p>
+
+                <h4 class="examples-title">✨ Basic Examples:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>⏮️ PAST Tense:</strong> I <u>played</u> yesterday. She <u>ate</u> lunch. (Already happened!)</li>
+                    <li class="example-item"><strong>▶️ PRESENT Tense:</strong> I <u>play</u> now. She <u>eats</u> lunch. (Happening now or regularly!)</li>
+                    <li class="example-item"><strong>⏭️ FUTURE Tense:</strong> I <u>will play</u> tomorrow. She <u>will eat</u> lunch. (Will happen later!)</li>
+                </ul>
+
+                <h4 class="examples-title">📊 The 12 Types of Tenses</h4>
+                <div class="tense-table-container">
+                    <table class="tense-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Present</th>
+                                <th>Past</th>
+                                <th>Future</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="tense-type">Simple</td>
+                                <td>I play / She plays</td>
+                                <td>I played / She played</td>
+                                <td>I will play / She will play</td>
+                            </tr>
+                            <tr>
+                                <td class="tense-type">Continuous</td>
+                                <td>I am playing / She is playing</td>
+                                <td>I was playing / She was playing</td>
+                                <td>I will be playing / She will be playing</td>
+                            </tr>
+                            <tr>
+                                <td class="tense-type">Perfect</td>
+                                <td>I have played / She has played</td>
+                                <td>I had played / She had played</td>
+                                <td>I will have played / She will have played</td>
+                            </tr>
+                            <tr>
+                                <td class="tense-type">Perfect Continuous</td>
+                                <td>I have been playing / She has been playing</td>
+                                <td>I had been playing / She had been playing</td>
+                                <td>I will have been playing / She will have been playing</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> Think of tenses like a timeline! 
+                    ⏮️ Past is behind you, ▶️ Present is where you are now, and ⏭️ Future is ahead of you! 
+                    Time words like "yesterday," "now," and "tomorrow" are great clues! 📅
+                </p>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn" onclick="startGame()">🎮 Start Playing!</button>
+                
+                <div class="game-container" id="gameContainer" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display" id="scoreDisplay">🏆 Score: 0</div>
+                        <div class="question-counter" id="questionCounter">Question 1 / 10</div>
+                    </div>
+                    <div class="question-text" id="questionText">Loading question...</div>
+                    <div class="options-grid" id="optionsGrid"></div>
+                    <div class="feedback" id="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            // Simple Tenses
+            { question: 'What tense? "I play soccer."', options: ['Simple Present', 'Present Continuous', 'Simple Past', 'Simple Future'], correct: 'Simple Present' },
+            { question: 'What tense? "She played tennis yesterday."', options: ['Simple Past', 'Past Continuous', 'Simple Present', 'Past Perfect'], correct: 'Simple Past' },
+            { question: 'What tense? "We will visit the zoo."', options: ['Simple Future', 'Future Continuous', 'Simple Present', 'Present Perfect'], correct: 'Simple Future' },
+            { question: 'Identify: "He walks to school."', options: ['Simple Present', 'Present Continuous', 'Simple Past', 'Simple Future'], correct: 'Simple Present' },
+            { question: 'Identify: "They watched a movie."', options: ['Simple Past', 'Past Continuous', 'Simple Present', 'Past Perfect'], correct: 'Simple Past' },
+            
+            // Continuous Tenses
+            { question: 'What tense? "I am reading a book."', options: ['Present Continuous', 'Simple Present', 'Past Continuous', 'Present Perfect'], correct: 'Present Continuous' },
+            { question: 'What tense? "She was singing loudly."', options: ['Past Continuous', 'Simple Past', 'Present Continuous', 'Past Perfect'], correct: 'Past Continuous' },
+            { question: 'What tense? "They will be dancing tomorrow."', options: ['Future Continuous', 'Simple Future', 'Present Continuous', 'Future Perfect'], correct: 'Future Continuous' },
+            { question: 'Identify: "He is writing a letter."', options: ['Present Continuous', 'Simple Present', 'Past Continuous', 'Present Perfect'], correct: 'Present Continuous' },
+            { question: 'Identify: "We were playing outside."', options: ['Past Continuous', 'Simple Past', 'Present Continuous', 'Past Perfect'], correct: 'Past Continuous' },
+            
+            // Perfect Tenses
+            { question: 'What tense? "I have finished my homework."', options: ['Present Perfect', 'Simple Present', 'Past Perfect', 'Present Continuous'], correct: 'Present Perfect' },
+            { question: 'What tense? "She had left before I arrived."', options: ['Past Perfect', 'Simple Past', 'Present Perfect', 'Past Continuous'], correct: 'Past Perfect' },
+            { question: 'What tense? "They will have completed the project."', options: ['Future Perfect', 'Simple Future', 'Present Perfect', 'Future Continuous'], correct: 'Future Perfect' },
+            { question: 'Identify: "He has eaten lunch."', options: ['Present Perfect', 'Simple Present', 'Past Perfect', 'Simple Past'], correct: 'Present Perfect' },
+            { question: 'Identify: "We had seen that movie before."', options: ['Past Perfect', 'Simple Past', 'Present Perfect', 'Past Continuous'], correct: 'Past Perfect' },
+            
+            // Perfect Continuous Tenses
+            { question: 'What tense? "I have been studying for two hours."', options: ['Present Perfect Continuous', 'Present Continuous', 'Past Perfect Continuous', 'Present Perfect'], correct: 'Present Perfect Continuous' },
+            { question: 'What tense? "She had been cooking when I called."', options: ['Past Perfect Continuous', 'Past Continuous', 'Present Perfect Continuous', 'Past Perfect'], correct: 'Past Perfect Continuous' },
+            { question: 'What tense? "They will have been traveling for 10 hours."', options: ['Future Perfect Continuous', 'Future Continuous', 'Present Perfect Continuous', 'Future Perfect'], correct: 'Future Perfect Continuous' },
+            { question: 'Identify: "He has been working here for 5 years."', options: ['Present Perfect Continuous', 'Present Continuous', 'Past Perfect Continuous', 'Present Perfect'], correct: 'Present Perfect Continuous' },
+            { question: 'Identify: "We had been waiting for an hour."', options: ['Past Perfect Continuous', 'Past Continuous', 'Present Perfect Continuous', 'Past Perfect'], correct: 'Past Perfect Continuous' },
+            
+            // Mixed Questions
+            { question: 'Find the FUTURE tense:', options: ['I walked', 'I walk', 'I will walk', 'I am walking'], correct: 'I will walk' },
+            { question: 'Which is PRESENT CONTINUOUS?', options: ['He jumped', 'He jumps', 'He is jumping', 'He will jump'], correct: 'He is jumping' },
+            { question: 'Which is PAST PERFECT?', options: ['She ate', 'She has eaten', 'She had eaten', 'She was eating'], correct: 'She had eaten' },
+            { question: 'What tense? "I will be sleeping at 10 PM."', options: ['Future Continuous', 'Simple Future', 'Future Perfect', 'Present Continuous'], correct: 'Future Continuous' },
+            { question: 'What tense? "They are playing cricket now."', options: ['Present Continuous', 'Simple Present', 'Past Continuous', 'Present Perfect'], correct: 'Present Continuous' },
+            { question: 'Identify: "She will have finished by evening."', options: ['Future Perfect', 'Simple Future', 'Future Continuous', 'Present Perfect'], correct: 'Future Perfect' },
+            { question: 'Find the PAST CONTINUOUS:', options: ['I study', 'I studied', 'I was studying', 'I have studied'], correct: 'I was studying' },
+            { question: 'Which is PRESENT PERFECT?', options: ['He runs', 'He ran', 'He has run', 'He is running'], correct: 'He has run' },
+            { question: 'What shows ongoing action in the past?', options: ['I played', 'I was playing', 'I had played', 'I play'], correct: 'I was playing' },
+            { question: 'Identify: "We will be having dinner at 8 PM."', options: ['Future Continuous', 'Simple Future', 'Future Perfect', 'Present Continuous'], correct: 'Future Continuous' }
+        ];
+
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function startGame() {
+            // Randomly select 10 questions
+            currentQuestions = shuffleArray(allQuestions).slice(0, 10);
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            document.querySelector('.start-game-btn').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'block';
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestionIndex + 1} / 10`;
+            document.getElementById('scoreDisplay').textContent = `🏆 Score: ${score}`;
+            document.getElementById('feedback').style.display = 'none';
+            
+            const optionsGrid = document.getElementById('optionsGrid');
+            optionsGrid.innerHTML = '';
+            
+            question.options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => checkAnswer(option, btn);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selected, btn) {
+            const question = currentQuestions[currentQuestionIndex];
+            const feedback = document.getElementById('feedback');
+            const allBtns = document.querySelectorAll('.option-btn');
+            
+            allBtns.forEach(b => b.style.pointerEvents = 'none');
+            
+            if (selected === question.correct) {
+                btn.classList.add('correct');
+                feedback.textContent = '✨ Correct! Great job!';
+                feedback.className = 'feedback correct';
+                score++;
+            } else {
+                btn.classList.add('incorrect');
+                allBtns.forEach(b => {
+                    if (b.textContent === question.correct) {
+                        b.classList.add('correct');
+                    }
+                });
+                feedback.textContent = `❌ Oops! The correct answer is: ${question.correct}`;
+                feedback.className = 'feedback incorrect';
+            }
+            
+            feedback.style.display = 'block';
+            document.getElementById('scoreDisplay').textContent = `🏆 Score: ${score}`;
+            
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < currentQuestions.length) {
+                    loadQuestion();
+                } else {
+                    showFinalScore();
+                }
+            }, 2000);
+        }
+
+        function showFinalScore() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h2 style="font-size: 3rem; margin-bottom: 20px;">🎉 Game Over! 🎉</h2>
+                    <p style="font-size: 2rem; color: #667eea; font-weight: 600;">Your Score: ${score} / 10</p>
+                    <p style="font-size: 1.5rem; margin: 20px 0;">${score >= 8 ? '🌟 Excellent!' : score >= 6 ? '👍 Good job!' : '💪 Keep practicing!'}</p>
+                    <button class="start-game-btn" onclick="location.reload()">🔄 Play Again</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

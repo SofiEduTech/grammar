@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adverb - Learn & Play Grammar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .stars, .stars2, .stars3 {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .stars {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="2" height="2"><circle cx="1" cy="1" r="1" fill="white" opacity="0.3"/></svg>') repeat;
+            animation: animateStars 50s linear infinite;
+        }
+
+        .stars2 {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><circle cx="1.5" cy="1.5" r="1" fill="white" opacity="0.2"/></svg>') repeat;
+            animation: animateStars 100s linear infinite;
+        }
+
+        .stars3 {
+            background: transparent url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="2" cy="2" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+            animation: animateStars 150s linear infinite;
+        }
+
+        @keyframes animateStars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-2000px); }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .home-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+        }
+
+        .home-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .page-logo {
+            color: white;
+            font-size: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .content-box {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .page-title {
+            color: #667eea;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-icon {
+            font-size: 3rem;
+        }
+
+        .explanation-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #764ba2;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .explanation-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .examples-title {
+            color: #667eea;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .example-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .example-item {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e3e8f0 100%);
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .type-title {
+            color: #764ba2;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .type-examples {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .start-game-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            border-radius: 30px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .start-game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .game-container {
+            margin-top: 30px;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+
+        .score-display, .question-counter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .question-text {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 25px;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #667eea;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .option-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .option-btn.correct {
+            background: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .option-btn.incorrect {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+
+        .feedback {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+
+        .feedback.correct {
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+        }
+
+        .feedback.incorrect {
+            background: linear-gradient(135deg, #f44336 0%, #e53935 100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">⚡</span> Adverb
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What is an Adverb?</h3>
+                <p class="explanation-text">
+                    An <strong>adverb</strong> tells us HOW something happens! It describes a verb and shows us the way 
+                    an action is done. Many adverbs end with "-ly"! Instead of saying "She ran," we can say 
+                    "She ran quickly!" or "She ran slowly!" ⚡
+                </p>
+
+                <h4 class="examples-title">✨ Examples of Adverbs:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>🏃 Speed:</strong> He runs <u>quickly</u>, She walks <u>slowly</u></li>
+                    <li class="example-item"><strong>🗣️ How we speak:</strong> They talk <u>softly</u>, He shouts <u>loudly</u></li>
+                    <li class="example-item"><strong>✍️ How we do things:</strong> She writes <u>neatly</u>, They play <u>happily</u></li>
+                    <li class="example-item"><strong>🎯 How well:</strong> He sings <u>beautifully</u>, She dances <u>gracefully</u></li>
+                </ul>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> Adverbs answer the question "HOW?" - How did she sing? Beautifully! 
+                    How did he run? Fast! Try adding adverbs to make your sentences more exciting! 🌟
+                </p>
+
+                <h4 class="examples-title">🎯 Types of Adverbs</h4>
+                <div class="types-grid">
+                    <div class="type-card">
+                        <div class="type-title">🎭 Adverbs of Manner</div>
+                        <div class="type-examples">
+                            Tell us <strong>HOW</strong> something happens<br>
+                            Examples: quickly, slowly, carefully, loudly, quietly, beautifully, badly, well
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">📍 Adverbs of Place</div>
+                        <div class="type-examples">
+                            Tell us <strong>WHERE</strong> something happens<br>
+                            Examples: here, there, everywhere, outside, inside, upstairs, downstairs, nearby
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">⏰ Adverbs of Time</div>
+                        <div class="type-examples">
+                            Tell us <strong>WHEN</strong> something happens<br>
+                            Examples: now, today, yesterday, tomorrow, soon, later, early, recently, already
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">🔄 Adverbs of Frequency</div>
+                        <div class="type-examples">
+                            Tell us <strong>HOW OFTEN</strong> something happens<br>
+                            Examples: always, never, often, sometimes, rarely, usually, seldom, frequently
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">📊 Adverbs of Degree</div>
+                        <div class="type-examples">
+                            Tell us <strong>HOW MUCH</strong> or to what extent<br>
+                            Examples: very, too, quite, almost, extremely, completely, totally, barely, enough
+                        </div>
+                    </div>
+
+                    <div class="type-card">
+                        <div class="type-title">💭 Adverbs of Reason</div>
+                        <div class="type-examples">
+                            Tell us <strong>WHY</strong> something happens<br>
+                            Examples: therefore, hence, thus, consequently, accordingly, because, so
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn" onclick="startGame()">🎮 Start Playing!</button>
+                
+                <div class="game-container" id="gameContainer" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display" id="scoreDisplay">🏆 Score: 0</div>
+                        <div class="question-counter" id="questionCounter">Question 1 / 10</div>
+                    </div>
+                    <div class="question-text" id="questionText">Loading question...</div>
+                    <div class="options-grid" id="optionsGrid"></div>
+                    <div class="feedback" id="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const allQuestions = [
+            // Adverbs of Manner
+            {
+                question: 'What type of adverb? "She sings beautifully."',
+                options: ['Manner', 'Place', 'Time', 'Frequency'],
+                correct: 'Manner'
+            },
+            {
+                question: 'Find the adverb of MANNER: He runs quickly.',
+                options: ['He', 'Runs', 'Quickly', 'Run'],
+                correct: 'Quickly'
+            },
+            {
+                question: 'Which is an adverb of manner?',
+                options: ['Carefully', 'Here', 'Always', 'Yesterday'],
+                correct: 'Carefully'
+            },
+            {
+                question: 'Identify the manner adverb: They danced gracefully.',
+                options: ['They', 'Danced', 'Gracefully', 'Dance'],
+                correct: 'Gracefully'
+            },
+            {
+                question: 'Which tells HOW something is done?',
+                options: ['Slowly', 'There', 'Never', 'Tomorrow'],
+                correct: 'Slowly'
+            },
+
+            // Adverbs of Place
+            {
+                question: 'What type of adverb? "Come here!"',
+                options: ['Place', 'Time', 'Manner', 'Frequency'],
+                correct: 'Place'
+            },
+            {
+                question: 'Find the adverb of PLACE: The cat is outside.',
+                options: ['Cat', 'Is', 'Outside', 'The'],
+                correct: 'Outside'
+            },
+            {
+                question: 'Which tells WHERE something happens?',
+                options: ['Everywhere', 'Quickly', 'Always', 'Soon'],
+                correct: 'Everywhere'
+            },
+            {
+                question: 'Identify the place adverb: She looked everywhere.',
+                options: ['She', 'Looked', 'Everywhere', 'Look'],
+                correct: 'Everywhere'
+            },
+            {
+                question: 'Which is an adverb of place?',
+                options: ['Nearby', 'Loudly', 'Often', 'Early'],
+                correct: 'Nearby'
+            },
+
+            // Adverbs of Time
+            {
+                question: 'What type of adverb? "I will go tomorrow."',
+                options: ['Time', 'Place', 'Manner', 'Degree'],
+                correct: 'Time'
+            },
+            {
+                question: 'Find the adverb of TIME: We arrived early.',
+                options: ['We', 'Arrived', 'Early', 'Arrive'],
+                correct: 'Early'
+            },
+            {
+                question: 'Which tells WHEN something happens?',
+                options: ['Yesterday', 'Slowly', 'Here', 'Very'],
+                correct: 'Yesterday'
+            },
+            {
+                question: 'Identify the time adverb: He called recently.',
+                options: ['He', 'Called', 'Recently', 'Call'],
+                correct: 'Recently'
+            },
+            {
+                question: 'Which is an adverb of time?',
+                options: ['Now', 'Carefully', 'Always', 'There'],
+                correct: 'Now'
+            },
+
+            // Adverbs of Frequency
+            {
+                question: 'What type of adverb? "She always helps."',
+                options: ['Frequency', 'Time', 'Manner', 'Place'],
+                correct: 'Frequency'
+            },
+            {
+                question: 'Find the adverb of FREQUENCY: They never complain.',
+                options: ['They', 'Never', 'Complain', 'Never complain'],
+                correct: 'Never'
+            },
+            {
+                question: 'Which tells HOW OFTEN something happens?',
+                options: ['Sometimes', 'Quickly', 'Here', 'Today'],
+                correct: 'Sometimes'
+            },
+            {
+                question: 'Identify the frequency adverb: I usually wake up at 7.',
+                options: ['Wake', 'Usually', 'At', 'Up'],
+                correct: 'Usually'
+            },
+            {
+                question: 'Which is an adverb of frequency?',
+                options: ['Rarely', 'Loudly', 'Yesterday', 'Outside'],
+                correct: 'Rarely'
+            },
+
+            // Adverbs of Degree
+            {
+                question: 'What type of adverb? "It is very hot."',
+                options: ['Degree', 'Manner', 'Time', 'Place'],
+                correct: 'Degree'
+            },
+            {
+                question: 'Find the adverb of DEGREE: She is extremely smart.',
+                options: ['She', 'Is', 'Extremely', 'Smart'],
+                correct: 'Extremely'
+            },
+            {
+                question: 'Which tells HOW MUCH or TO WHAT EXTENT?',
+                options: ['Too', 'Slowly', 'Often', 'Here'],
+                correct: 'Too'
+            },
+            {
+                question: 'Identify the degree adverb: The movie was quite good.',
+                options: ['Movie', 'Was', 'Quite', 'Good'],
+                correct: 'Quite'
+            },
+            {
+                question: 'Which is an adverb of degree?',
+                options: ['Almost', 'Happily', 'Never', 'Tomorrow'],
+                correct: 'Almost'
+            },
+
+            // Adverbs of Reason
+            {
+                question: 'What type of adverb? "Therefore, we left."',
+                options: ['Reason', 'Time', 'Place', 'Manner'],
+                correct: 'Reason'
+            },
+            {
+                question: 'Find the adverb of REASON: He was sick, hence he stayed home.',
+                options: ['Sick', 'Hence', 'Stayed', 'Home'],
+                correct: 'Hence'
+            },
+            {
+                question: 'Which tells WHY something happens?',
+                options: ['Thus', 'Quickly', 'Always', 'There'],
+                correct: 'Thus'
+            },
+            {
+                question: 'Identify the reason adverb: She studied hard; consequently, she passed.',
+                options: ['Studied', 'Hard', 'Consequently', 'Passed'],
+                correct: 'Consequently'
+            },
+            {
+                question: 'Which is an adverb of reason?',
+                options: ['Therefore', 'Slowly', 'Often', 'Yesterday'],
+                correct: 'Therefore'
+            }
+        ];
+
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function startGame() {
+            currentQuestions = shuffleArray(allQuestions).slice(0, 10);
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            document.querySelector('.start-game-btn').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'block';
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('questionCounter').textContent = `Question ${currentQuestionIndex + 1} / 10`;
+            document.getElementById('scoreDisplay').textContent = `🏆 Score: ${score}`;
+            document.getElementById('feedback').style.display = 'none';
+            
+            const optionsGrid = document.getElementById('optionsGrid');
+            optionsGrid.innerHTML = '';
+            
+            question.options.forEach(option => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = option;
+                btn.onclick = () => checkAnswer(option, btn);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function checkAnswer(selected, btn) {
+            const question = currentQuestions[currentQuestionIndex];
+            const feedback = document.getElementById('feedback');
+            const allBtns = document.querySelectorAll('.option-btn');
+            
+            allBtns.forEach(b => b.style.pointerEvents = 'none');
+            
+            if (selected === question.correct) {
+                btn.classList.add('correct');
+                feedback.textContent = '✨ Correct! Great job!';
+                feedback.className = 'feedback correct';
+                score++;
+            } else {
+                btn.classList.add('incorrect');
+                allBtns.forEach(b => {
+                    if (b.textContent === question.correct) {
+                        b.classList.add('correct');
+                    }
+                });
+                feedback.textContent = `❌ Oops! The correct answer is: ${question.correct}`;
+                feedback.className = 'feedback incorrect';
+            }
+            
+            feedback.style.display = 'block';
+            document.getElementById('scoreDisplay').textContent = `🏆 Score: ${score}`;
+            
+            setTimeout(() => {
+                currentQuestionIndex++;
+                if (currentQuestionIndex < currentQuestions.length) {
+                    loadQuestion();
+                } else {
+                    showFinalScore();
+                }
+            }, 2000);
+        }
+
+        function showFinalScore() {
+            const container = document.getElementById('gameContainer');
+            container.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h2 style="font-size: 3rem; margin-bottom: 20px;">🎉 Game Over! 🎉</h2>
+                    <p style="font-size: 2rem; color: #667eea; font-weight: 600;">Your Score: ${score} / 10</p>
+                    <p style="font-size: 1.5rem; margin: 20px 0;">${score >= 8 ? '🌟 Excellent!' : score >= 6 ? '👍 Good job!' : '💪 Keep practicing!'}</p>
+                    <button class="start-game-btn" onclick="location.reload()">🔄 Play Again</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

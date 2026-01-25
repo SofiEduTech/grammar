@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjunction - Learn & Play Grammar</title>
+    <link rel="stylesheet" href="grammar.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <div class="container">
+        <div class="game-header">
+            <a href="index.html" class="home-btn">🏠 Home</a>
+            <h1 class="page-logo">✨ SofiEduTech</h1>
+        </div>
+
+        <div class="content-box">
+            <h2 class="page-title">
+                <span class="page-icon">🔗</span> Conjunction
+            </h2>
+
+            <div class="explanation-section">
+                <h3 class="section-title">📖 What is a Conjunction?</h3>
+                <p class="explanation-text">
+                    A <strong>conjunction</strong> is a joining word! It connects words, phrases, or sentences together. 
+                    Think of conjunctions as the "glue" that holds parts of a sentence together! 
+                    "I like apples AND oranges" - AND is a conjunction! 🔗
+                </p>
+
+                <h4 class="examples-title">✨ Examples of Conjunctions:</h4>
+                <ul class="example-list">
+                    <li class="example-item"><strong>➕ AND:</strong> Joins similar things - "I like cats AND dogs"</li>
+                    <li class="example-item"><strong>🔄 BUT:</strong> Shows difference - "I'm tired BUT happy"</li>
+                    <li class="example-item"><strong>❓ OR:</strong> Gives choices - "Do you want pizza OR pasta?"</li>
+                    <li class="example-item"><strong>💭 BECAUSE:</strong> Gives reasons - "I'm happy BECAUSE it's sunny"</li>
+                    <li class="example-item"><strong>⏰ SO:</strong> Shows result - "I was tired SO I slept"</li>
+                </ul>
+
+                <p class="explanation-text">
+                    <strong>Fun Tip:</strong> Conjunctions are like bridges that connect two islands! 
+                    They help you combine short sentences into longer, more interesting ones! 🌉
+                </p>
+            </div>
+
+            <div class="game-section">
+                <button class="start-game-btn">🎮 Start Playing!</button>
+                
+                <div class="game-container" style="display: none;">
+                    <div class="game-stats">
+                        <div class="score-display">🏆 Score: 0</div>
+                        <div class="question-counter">Question 1 / 5</div>
+                    </div>
+                    <div class="question-text">Loading question...</div>
+                    <div class="options-grid"></div>
+                    <div class="feedback" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+    <script>
+        const gameQuestions = [
+            {
+                question: 'Which word connects two words?',
+                options: ['And', 'Dog', 'Run', 'Happy'],
+                correct: 'And'
+            },
+            {
+                question: 'Find the joining word: I like apples and oranges.',
+                options: ['Like', 'Apples', 'And', 'Oranges'],
+                correct: 'And'
+            },
+            {
+                question: 'Pick the CONJUNCTION:',
+                options: ['Jump', 'But', 'Red', 'Quickly'],
+                correct: 'But'
+            },
+            {
+                question: 'Which connects sentences?',
+                options: ['Because', 'Running', 'Teacher', 'Beautiful'],
+                correct: 'Because'
+            },
+            {
+                question: 'Find the CONJUNCTION: She is tired but happy.',
+                options: ['She', 'Tired', 'But', 'Happy'],
+                correct: 'But'
+            },
+            {
+                question: 'Which gives a choice?',
+                options: ['Or', 'The', 'Very', 'Always'],
+                correct: 'Or'
+            },
+            {
+                question: 'Pick the joining word:',
+                options: ['So', 'Cat', 'Big', 'Under'],
+                correct: 'So'
+            },
+            {
+                question: 'Find the CONJUNCTION: I read and write.',
+                options: ['I', 'Read', 'And', 'Write'],
+                correct: 'And'
+            }
+        ];
+    </script>
+</body>
+</html>

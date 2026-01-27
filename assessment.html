@@ -563,7 +563,7 @@
             <div class="welcome-instructions">
                 <h3>How to Play:</h3>
                 <ul>
-                    <li>Answer 10 random grammar questions</li>
+                    <li>Answer 20 grammar questions covering all parts of speech</li>
                     <li>Choose from multiple choice options</li>
                     <li>Drag and drop words to categories</li>
                     <li>Complete sentences with correct words</li>
@@ -723,74 +723,84 @@
         }
 
         // ============================================
-        // QUESTION BANK
+        // QUESTION BANK - 20 QUESTIONS
         // ============================================
 
-        // MCQ Questions (10 questions)
+        // MCQ Questions - 10 questions covering all topics
         const mcqQuestions = [
+            // Nouns
             {
                 type: 'mcq',
-                question: 'What is a noun?',
-                options: ['A person, place, or thing', 'An action word', 'A describing word', 'A connecting word'],
-                correct: 0
-            },
-            {
-                type: 'mcq',
-                question: 'Which word is a verb?',
-                options: ['Happy', 'Run', 'Blue', 'Cat'],
+                question: 'Which word is a proper noun?',
+                options: ['city', 'Paris', 'country', 'building'],
                 correct: 1
             },
+            // Pronouns
             {
                 type: 'mcq',
-                question: 'Choose the adjective: The _____ flower is beautiful.',
-                options: ['red', 'run', 'quickly', 'and'],
-                correct: 0
-            },
-            {
-                type: 'mcq',
-                question: 'What word type is "I" in the sentence: "I love ice cream"?',
-                options: ['Noun', 'Pronoun', 'Verb', 'Adjective'],
-                correct: 1
-            },
-            {
-                type: 'mcq',
-                question: 'Which sentence is in the past tense?',
-                options: ['I eat pizza', 'I will eat pizza', 'I ate pizza', 'I am eating pizza'],
+                question: 'Which pronoun should replace "Sarah and Tom"?',
+                options: ['He', 'She', 'They', 'It'],
                 correct: 2
             },
+            // Verbs
             {
                 type: 'mcq',
-                question: 'What is the plural of "child"?',
-                options: ['Childs', 'Children', 'Childes', 'Childrens'],
-                correct: 1
-            },
-            {
-                type: 'mcq',
-                question: 'Which word describes how something is done?',
-                options: ['Noun', 'Verb', 'Adverb', 'Pronoun'],
+                question: 'Which word is an action verb?',
+                options: ['Beautiful', 'Quickly', 'Jump', 'Happy'],
                 correct: 2
             },
+            // Adjectives
             {
                 type: 'mcq',
-                question: 'Choose the correct sentence:',
-                options: ['She go to school', 'She goes to school', 'She going to school', 'She gone to school'],
+                question: 'Choose the adjective: The _____ elephant is huge.',
+                options: ['gray', 'runs', 'loudly', 'because'],
+                correct: 0
+            },
+            // Adverbs
+            {
+                type: 'mcq',
+                question: 'Which word is an adverb?',
+                options: ['Fast (car)', 'Quick', 'Quickly', 'Speed'],
+                correct: 2
+            },
+            // Prepositions
+            {
+                type: 'mcq',
+                question: 'Which word is a preposition? The cat is _____ the table.',
+                options: ['on', 'happy', 'running', 'very'],
+                correct: 0
+            },
+            // Conjunctions
+            {
+                type: 'mcq',
+                question: 'Which word is a conjunction?',
+                options: ['But', 'Beautiful', 'Run', 'Under'],
+                correct: 0
+            },
+            // Interjections
+            {
+                type: 'mcq',
+                question: 'Which is an interjection?',
+                options: ['Hello', 'Wow!', 'The', 'Walk'],
                 correct: 1
             },
+            // Tenses - Present
             {
                 type: 'mcq',
-                question: 'What is the opposite of "big"?',
-                options: ['Large', 'Small', 'Huge', 'Tall'],
+                question: 'Which sentence is in present tense?',
+                options: ['I walked home', 'I walk home', 'I will walk home', 'I was walking home'],
                 correct: 1
             },
+            // Tenses - Past
             {
                 type: 'mcq',
-                question: 'Which is a proper noun?',
-                options: ['dog', 'city', 'London', 'car'],
+                question: 'What is the past tense of "eat"?',
+                options: ['Eating', 'Eats', 'Ate', 'Will eat'],
                 correct: 2
             }
         ];
 
-        // Drag and Drop Questions - Word Categories (10 questions)
+        // Drag and Drop Questions - Categories (5 questions)
         const dragDropCategories = [
             {
                 type: 'drag-category',
@@ -814,157 +824,75 @@
             },
             {
                 type: 'drag-category',
-                question: 'Put each word in the right group:',
-                items: ['book', 'read', 'beautiful', 'pen', 'write', 'small'],
+                question: 'Match words to their word types:',
+                items: ['on', 'and', 'wow', 'under', 'but', 'ouch'],
                 categories: [
-                    { label: 'Nouns', correctItems: ['book', 'pen'] },
-                    { label: 'Verbs', correctItems: ['read', 'write'] },
-                    { label: 'Adjectives', correctItems: ['beautiful', 'small'] }
+                    { label: 'Prepositions', correctItems: ['on', 'under'] },
+                    { label: 'Conjunctions', correctItems: ['and', 'but'] },
+                    { label: 'Interjections', correctItems: ['wow', 'ouch'] }
                 ]
             },
             {
                 type: 'drag-category',
-                question: 'Match each word to its word type:',
-                items: ['play', 'sunny', 'ball', 'swim', 'green', 'tree'],
+                question: 'Sort these pronouns and nouns:',
+                items: ['I', 'book', 'they', 'teacher', 'we', 'school'],
                 categories: [
-                    { label: 'Nouns', correctItems: ['ball', 'tree'] },
-                    { label: 'Verbs', correctItems: ['play', 'swim'] },
-                    { label: 'Adjectives', correctItems: ['sunny', 'green'] }
+                    { label: 'Pronouns', correctItems: ['I', 'they', 'we'] },
+                    { label: 'Nouns', correctItems: ['book', 'teacher', 'school'] }
                 ]
             },
             {
                 type: 'drag-category',
-                question: 'Sort these words into the correct boxes:',
-                items: ['it', 'softly', 'eat', 'they', 'loudly', 'sleep'],
+                question: 'Group these words correctly:',
+                items: ['big', 'softly', 'small', 'loudly', 'red', 'quickly'],
                 categories: [
-                    { label: 'Pronouns', correctItems: ['it', 'they'] },
-                    { label: 'Verbs', correctItems: ['eat', 'sleep'] },
-                    { label: 'Adverbs', correctItems: ['softly', 'loudly'] }
-                ]
-            },
-            {
-                type: 'drag-category',
-                question: 'Drag words to where they belong:',
-                items: ['car', 'drive', 'fast', 'bike', 'ride', 'slow'],
-                categories: [
-                    { label: 'Nouns', correctItems: ['car', 'bike'] },
-                    { label: 'Verbs', correctItems: ['drive', 'ride'] },
-                    { label: 'Adjectives', correctItems: ['fast', 'slow'] }
-                ]
-            },
-            {
-                type: 'drag-category',
-                question: 'Group these words by their type:',
-                items: ['apple', 'eat', 'sweet', 'banana', 'taste', 'yellow'],
-                categories: [
-                    { label: 'Nouns', correctItems: ['apple', 'banana'] },
-                    { label: 'Verbs', correctItems: ['eat', 'taste'] },
-                    { label: 'Adjectives', correctItems: ['sweet', 'yellow'] }
-                ]
-            },
-            {
-                type: 'drag-category',
-                question: 'Put each word in its correct category:',
-                items: ['we', 'carefully', 'think', 'you', 'nicely', 'talk'],
-                categories: [
-                    { label: 'Pronouns', correctItems: ['we', 'you'] },
-                    { label: 'Verbs', correctItems: ['think', 'talk'] },
-                    { label: 'Adverbs', correctItems: ['carefully', 'nicely'] }
-                ]
-            },
-            {
-                type: 'drag-category',
-                question: 'Sort words into the right groups:',
-                items: ['house', 'build', 'tall', 'school', 'learn', 'big'],
-                categories: [
-                    { label: 'Nouns', correctItems: ['house', 'school'] },
-                    { label: 'Verbs', correctItems: ['build', 'learn'] },
-                    { label: 'Adjectives', correctItems: ['tall', 'big'] }
-                ]
-            },
-            {
-                type: 'drag-category',
-                question: 'Match words to their correct type:',
-                items: ['friend', 'laugh', 'funny', 'teacher', 'help', 'kind'],
-                categories: [
-                    { label: 'Nouns', correctItems: ['friend', 'teacher'] },
-                    { label: 'Verbs', correctItems: ['laugh', 'help'] },
-                    { label: 'Adjectives', correctItems: ['funny', 'kind'] }
+                    { label: 'Adjectives', correctItems: ['big', 'small', 'red'] },
+                    { label: 'Adverbs', correctItems: ['softly', 'loudly', 'quickly'] }
                 ]
             }
         ];
 
-        // Drag and Drop Questions - Sentence Completion (10 questions)
+        // Drag and Drop Questions - Sentence Completion (5 questions)
         const dragDropSentences = [
+            // Verbs - Present tense
             {
                 type: 'drag-sentence',
-                question: 'Drag the correct word to complete the sentence:',
-                sentence: 'The cat _____ on the mat.',
+                question: 'Drag the correct verb to complete the sentence:',
+                sentence: 'The cat _____ on the mat every day.',
                 options: ['sits', 'sit', 'sitting', 'sat'],
                 correct: 'sits'
             },
+            // Verbs - Past tense
             {
                 type: 'drag-sentence',
-                question: 'Complete the sentence with the right word:',
+                question: 'Complete with the past tense verb:',
                 sentence: 'I _____ to school yesterday.',
                 options: ['go', 'goes', 'went', 'going'],
                 correct: 'went'
             },
+            // Pronouns
             {
                 type: 'drag-sentence',
-                question: 'Choose the word that fits:',
-                sentence: 'She is very _____ today.',
-                options: ['happy', 'happily', 'happiness', 'happier'],
-                correct: 'happy'
-            },
-            {
-                type: 'drag-sentence',
-                question: 'Fill in the blank:',
-                sentence: '_____ are going to the park.',
+                question: 'Choose the correct pronoun:',
+                sentence: '_____ are going to the park together.',
                 options: ['We', 'Us', 'Our', 'Ours'],
                 correct: 'We'
             },
+            // Prepositions
             {
                 type: 'drag-sentence',
-                question: 'Pick the right word:',
-                sentence: 'The dog _____ his tail when he is happy.',
-                options: ['wag', 'wags', 'wagging', 'wagged'],
-                correct: 'wags'
+                question: 'Pick the correct preposition:',
+                sentence: 'The book is _____ the table.',
+                options: ['on', 'and', 'but', 'very'],
+                correct: 'on'
             },
+            // Conjunctions
             {
                 type: 'drag-sentence',
-                question: 'Complete this sentence:',
-                sentence: 'They _____ playing in the garden now.',
-                options: ['is', 'am', 'are', 'be'],
-                correct: 'are'
-            },
-            {
-                type: 'drag-sentence',
-                question: 'Choose the correct word:',
-                sentence: 'My sister _____ her homework every day.',
-                options: ['do', 'does', 'doing', 'did'],
-                correct: 'does'
-            },
-            {
-                type: 'drag-sentence',
-                question: 'Fill in the missing word:',
-                sentence: 'The birds _____ in the sky.',
-                options: ['fly', 'flies', 'flying', 'flew'],
-                correct: 'fly'
-            },
-            {
-                type: 'drag-sentence',
-                question: 'Drag the word that fits best:',
-                sentence: 'He _____ a delicious cake yesterday.',
-                options: ['bake', 'bakes', 'baked', 'baking'],
-                correct: 'baked'
-            },
-            {
-                type: 'drag-sentence',
-                question: 'Complete the sentence:',
-                sentence: '_____ book is on the table.',
-                options: ['This', 'These', 'Those', 'Them'],
-                correct: 'This'
+                question: 'Choose the correct conjunction:',
+                sentence: 'I like apples _____ oranges.',
+                options: ['and', 'on', 'quickly', 'happy'],
+                correct: 'and'
             }
         ];
 
@@ -985,15 +913,15 @@
         // INITIALIZATION
         // ============================================
         function initGame() {
-            // Combine all questions and shuffle
+            // Combine all questions (total 20 questions)
             const allQuestions = [
-                ...mcqQuestions,
-                ...dragDropCategories,
-                ...dragDropSentences
+                ...mcqQuestions,           // 10 MCQ
+                ...dragDropCategories,     // 5 Category sorting
+                ...dragDropSentences       // 5 Sentence completion
             ];
             
-            // Shuffle and select 10 random questions
-            selectedQuestions = shuffleArray(allQuestions).slice(0, 10);
+            // Shuffle all questions
+            selectedQuestions = shuffleArray(allQuestions);
             
             // Update total questions display
             document.getElementById('totalQuestions').textContent = selectedQuestions.length;

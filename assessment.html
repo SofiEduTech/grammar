@@ -920,8 +920,41 @@
                 ...dragDropSentences       // 5 Sentence completion
             ];
             
-            // Shuffle all questions
-            selectedQuestions = shuffleArray(allQuestions);
+            // Shuffle all questions multiple times for better randomization
+            let shuffled = shuffleArray([...allQuestions]);
+            shuffled = shuffleArray(shuffled);
+            shuffled = shuffleArray(shuffled);
+            
+            // Process each question to randomize internal elements
+            selectedQuestions = shuffled.map(q => {
+                if (q.type === 'mcq') {
+                    // Create a deep copy and shuffle MCQ options while tracking correct answer
+                    const optionsWithIndex = q.options.map((opt, idx) => ({ 
+                        option: opt, 
+                        originalIndex: idx 
+                    }));
+                    const shuffledOptions = shuffleArray(optionsWithIndex);
+                    
+                    return {
+                        ...q,
+                        options: shuffledOptions.map(item => item.option),
+                        correct: shuffledOptions.findIndex(item => item.originalIndex === q.correct)
+                    };
+                } else if (q.type === 'drag-category') {
+                    // Shuffle items for drag and drop categories
+                    return {
+                        ...q,
+                        items: shuffleArray([...q.items])
+                    };
+                } else if (q.type === 'drag-sentence') {
+                    // Shuffle options for sentence completion
+                    return {
+                        ...q,
+                        options: shuffleArray([...q.options])
+                    };
+                }
+                return q;
+            });
             
             // Update total questions display
             document.getElementById('totalQuestions').textContent = selectedQuestions.length;
@@ -1067,10 +1100,9 @@
 
             let html = '<div class="drag-container">';
             
-            // Draggable items
+            // Draggable items (already shuffled in initGame)
             html += '<div class="draggable-items" id="draggableItems">';
-            const shuffledItems = shuffleArray(question.items);
-            shuffledItems.forEach(item => {
+            question.items.forEach(item => {
                 html += `<div class="draggable" draggable="true">${item}</div>`;
             });
             html += '</div>';
@@ -1100,10 +1132,9 @@
             
             let html = '<div class="drag-container">';
             
-            // Draggable options
+            // Draggable options (already shuffled in initGame)
             html += '<div class="draggable-items" id="draggableItems">';
-            const shuffledOptions = shuffleArray(question.options);
-            shuffledOptions.forEach(option => {
+            question.options.forEach(option => {
                 html += `<div class="draggable" draggable="true">${option}</div>`;
             });
             html += '</div>';
@@ -1388,6 +1419,7 @@
             document.getElementById('resultsContainer').classList.add('hidden');
             document.getElementById('pageTitle').style.display = 'block';
             
+            // Re-initialize with newly shuffled questions
             initGame();
         }
 

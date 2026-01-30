@@ -577,55 +577,65 @@
         const repeatBtn = document.getElementById('repeatBtn');
         let isRepeating = false;
 
+        // Initialize repeat button background
+        repeatBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+
         // Play button
-        playBtn.addEventListener('click', function() {
+        playBtn.addEventListener('click', () => {
             if (audio.paused) {
                 audio.play();
+                playBtn.textContent = '⏸️';
                 playBtn.classList.add('playing');
             } else {
                 audio.pause();
+                playBtn.textContent = '▶️';
                 playBtn.classList.remove('playing');
             }
         });
 
         // Stop button
-        stopBtn.addEventListener('click', function() {
+        stopBtn.addEventListener('click', () => {
             audio.pause();
             audio.currentTime = 0;
+            playBtn.textContent = '▶️';
             playBtn.classList.remove('playing');
             isRepeating = false;
-            repeatBtn.classList.remove('playing');
+            repeatBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
         });
 
         // Repeat button
-        repeatBtn.addEventListener('click', function() {
+        repeatBtn.addEventListener('click', () => {
             isRepeating = !isRepeating;
             audio.loop = isRepeating;
             if (isRepeating) {
-                repeatBtn.classList.add('playing');
+                repeatBtn.style.background = 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)';
                 if (audio.paused) {
                     audio.play();
+                    playBtn.textContent = '⏸️';
                     playBtn.classList.add('playing');
                 }
             } else {
-                repeatBtn.classList.remove('playing');
+                repeatBtn.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
             }
         });
 
         // Update play button when audio ends
-        audio.addEventListener('ended', function() {
+        audio.addEventListener('ended', () => {
             if (!isRepeating) {
+                playBtn.textContent = '▶️';
                 playBtn.classList.remove('playing');
             }
         });
 
         // Update play button when audio plays
-        audio.addEventListener('play', function() {
+        audio.addEventListener('play', () => {
+            playBtn.textContent = '⏸️';
             playBtn.classList.add('playing');
         });
 
         // Update play button when audio pauses
-        audio.addEventListener('pause', function() {
+        audio.addEventListener('pause', () => {
+            playBtn.textContent = '▶️';
             playBtn.classList.remove('playing');
         });
 
@@ -804,5 +814,4 @@
         }
     </script>
 </body>
-
 </html>
